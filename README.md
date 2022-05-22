@@ -7,7 +7,7 @@
 
 ## Getting Started
 
-#### First, install all the packages:
+#### 1. EnvironmentFirst, install all the packages:
 
 ```bash
 npm install
@@ -15,7 +15,7 @@ npm install
 yarn install
 ```
 
-#### Now, run the development server:
+#### 2. Now, run the development server:
 
 ```bash
 npm run dev
@@ -23,7 +23,7 @@ npm run dev
 yarn dev
 ```
 
-#### Configure your backend ([Firebase](https://firebase.google.com/))
+#### 3. Configure your backend ([Firebase](https://firebase.google.com/))
 Go to `src\backend\db.js`
 ```js script
 const firebaseConfig = {
