@@ -7,6 +7,11 @@
 - [Firebase](https://firebase.google.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 
+<img width="1280" alt="image" src="https://user-images.githubusercontent.com/91727830/169706440-ee983844-7bed-411c-835c-50633ac27d1b.png">
+<img width="1280" alt="image" src="https://user-images.githubusercontent.com/91727830/169706457-3adbe774-8f77-450d-88a7-677bc2ebfcde.png">
+
+## With all the minified urls stored in your local storage.
+
 ## Getting Started
 
 #### 1. EnvironmentFirst, install all the packages:
