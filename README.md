@@ -1,3 +1,5 @@
+### Make this URL `https://medium.com/@vineetmishrahbk/90-of-javascript-developer-fail-to-answer-these-code-snippets-asked-in-interview-436e00ec1287` minified to this `https://urlminifier.vercel.app/id/l3h0iud5`
+
 ## Tech Stack
 
 - [NextJS](https://nextjs.org/)
