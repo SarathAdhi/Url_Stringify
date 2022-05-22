@@ -8,7 +8,7 @@
 - [Tailwind CSS](https://tailwindcss.com/)
 
 <img width="1280" alt="image" src="https://user-images.githubusercontent.com/91727830/169706440-ee983844-7bed-411c-835c-50633ac27d1b.png">
-<img width="1280" alt="image" src="https://user-images.githubusercontent.com/91727830/169706457-3adbe774-8f77-450d-88a7-677bc2ebfcde.png">
+<img width="1280" alt="image" src="https://user-images.githubusercontent.com/91727830/169706567-1ba30b4e-7eda-4c5c-aa67-2a81e7b30e39.png">
 
 ## With all the minified urls stored in your local storage.
 
