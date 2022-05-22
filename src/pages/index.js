@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import db from "../backend/db";
 import Link from "next/link";
+import Layouts from "../components/Layouts";
 
 export default function Home() {
   const [fullUrl, setFullUrl] = useState("");
@@ -58,7 +59,7 @@ export default function Home() {
   }
 
   return (
-    <div className="h-screen bg-teal-300 flex justify-center">
+    <Layouts title="URL Minifier">
       <div className="m-40">
       <h1 className="text-center font-semibold underline text-4xl mb-10">URL MINIFIER</h1>
         <input
@@ -81,6 +82,6 @@ export default function Home() {
           </h2>
         )}
       </div>
-    </div>
+    </Layouts>
   );
 }
