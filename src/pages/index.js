@@ -14,21 +14,28 @@ export default function Home() {
 
   useEffect(() => {
     setWebsiteUrl(location.host);
-    if (localStorage.getItem('url_minifier_storage')) {
-      var localUrlStorage = JSON.parse(localStorage.getItem('url_minifier_storage'))
-      setUsersLocalStorage(localUrlStorage)
+    if (localStorage.getItem("url_minifier_storage")) {
+      var localUrlStorage = JSON.parse(
+        localStorage.getItem("url_minifier_storage")
+      );
+      setUsersLocalStorage(localUrlStorage);
     }
   }, []);
 
   function storeDataInLocalStorage(object) {
-    if (localStorage.getItem('url_minifier_storage')) {
-      var localUrlStorage = JSON.parse(localStorage.getItem('url_minifier_storage'))
-      localUrlStorage.push(object)
-      localStorage.setItem('url_minifier_storage', JSON.stringify(localUrlStorage))
-      setUsersLocalStorage(localUrlStorage)
+    if (localStorage.getItem("url_minifier_storage")) {
+      var localUrlStorage = JSON.parse(
+        localStorage.getItem("url_minifier_storage")
+      );
+      localUrlStorage.push(object);
+      localStorage.setItem(
+        "url_minifier_storage",
+        JSON.stringify(localUrlStorage)
+      );
+      setUsersLocalStorage(localUrlStorage);
     } else {
-      localStorage.setItem('url_minifier_storage', JSON.stringify([object]))
-      setUsersLocalStorage([object])
+      localStorage.setItem("url_minifier_storage", JSON.stringify([object]));
+      setUsersLocalStorage([object]);
     }
   }
 
@@ -39,11 +46,11 @@ export default function Home() {
       fullUrl: fullUrl,
       shortUrlCode: uid,
       date: `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`,
-    }
+    };
     await addDoc(urlsCollectionRef, newObject);
 
     setMinifiedUrl(uid);
-    storeDataInLocalStorage(newObject)
+    storeDataInLocalStorage(newObject);
   }
 
   async function isThisUrlAlreadyExist() {
@@ -60,14 +67,16 @@ export default function Home() {
     if (neededURL.length === 0) createNewUrl();
     else {
       setMinifiedUrl(neededURL[0].shortUrlCode);
-      storeDataInLocalStorage(neededURL[0])
+      storeDataInLocalStorage(neededURL[0]);
     }
   }
 
   function isUrlValid() {
-    setMinifiedUrl('');
-    if (fullUrl === '') return false
-    var res = fullUrl.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+    setMinifiedUrl("");
+    if (fullUrl === "") return false;
+    var res = fullUrl.match(
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+    );
     if (res) isThisUrlAlreadyExist();
     else alert("Invalid URL");
   }
@@ -75,7 +84,9 @@ export default function Home() {
   return (
     <Layout title="URL Minifier">
       <div className="w-full mt-20 flex items-center flex-col">
-        <h1 className="text-center font-semibold underline text-4xl mb-10">URL MINIFIER</h1>
+        <h1 className="text-center font-semibold underline text-4xl mb-10">
+          URL MINIFIER
+        </h1>
         <div className="w-11/12 flex justify-center items-center flex-row flex-wrap">
           <input
             type="text"
@@ -97,26 +108,37 @@ export default function Home() {
             </Link>
           </h2>
         )}
-        {
-          usersLocalStorage.length != 0 &&
+        {usersLocalStorage.length != 0 && (
           <div className="flex flex-col justify-center items-center gap-8 my-10">
-          <button className="bg-red-500 rounded-xl font-bold border-[1px] border-black p-2 w-28" onClick={() => {
-            localStorage.setItem('url_minifier_storage', '');
-            setUsersLocalStorage('')
-          }}>CLEAR ALL</button>
+            <button
+              className="bg-red-500 rounded-xl font-bold border-[1px] border-black p-2 w-28"
+              onClick={() => {
+                localStorage.setItem("url_minifier_storage", "");
+                setUsersLocalStorage("");
+              }}
+            >
+              CLEAR ALL
+            </button>
             {usersLocalStorage.map((url, index) => {
               return (
-                <div key={index} className="flex flex-col justify-center items-center text-center">
+                <div
+                  key={index}
+                  className="flex flex-col justify-center items-center text-center"
+                >
                   <p className="break-all">{url.fullUrl}</p>
-                  <Link href={`/id/${url.shortUrlCode}`} >
-                    <a target="_blank"  className="bg-white text-center mt-1 text-blue-800 underline w-min px-2 py-1 rounded-lg">{websiteUrl + "/id/" + url.shortUrlCode}</a>
+                  <Link href={`/id/${url.shortUrlCode}`}>
+                    <a
+                      target="_blank"
+                      className="bg-white text-center mt-1 text-blue-800 underline w-min px-2 py-1 rounded-lg"
+                    >
+                      {websiteUrl + "/id/" + url.shortUrlCode}
+                    </a>
                   </Link>
                 </div>
-              )
+              );
             })}
           </div>
-
-        }
+        )}
       </div>
     </Layout>
   );
