@@ -91,7 +91,7 @@ export default function Home() {
           </button>
         </div>
         {minifiedUrl && (
-          <h2 className="mt-16 text-xl text-blue-600 underline text-center">
+          <h2 className="mt-16 text-lg sm:text-xl text-blue-600 underline text-center">
             <Link href={`/id/${minifiedUrl}`}>
               <a target="_blank">{websiteUrl + "/id/" + minifiedUrl}</a>
             </Link>
