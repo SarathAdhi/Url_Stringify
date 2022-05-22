@@ -4,8 +4,8 @@ import { getFirestore } from 'firebase/firestore';
 require('dotenv').config();
 
 const firebaseConfig = {
-    apiKey: process.env.APIKEY,
-    authDomain: "url-shortener-c5722.firebaseapp.com",
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
     projectId: "url-shortener-c5722",
     storageBucket: "url-shortener-c5722.appspot.com",
     messagingSenderId: "206778862027",
