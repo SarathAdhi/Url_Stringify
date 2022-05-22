@@ -1,6 +1,6 @@
 import React from 'react';
 import Router from 'next/router';
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import db from '../../backend/db';
 import { useEffect } from 'react';
 

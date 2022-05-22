@@ -60,6 +60,7 @@ export default function Home() {
   return (
     <div className="h-screen bg-teal-300 flex justify-center">
       <div className="m-40">
+      <h1 className="text-center font-semibold underline text-4xl mb-10">URL MINIFIER</h1>
         <input
           type="text"
           placeholder="Enter the URL"
@@ -73,7 +74,7 @@ export default function Home() {
           Submit
         </button>
         {minifiedUrl && (
-          <h2 className="mt-20 text-blue-600 underline text-center">
+          <h2 className="mt-16 text-xl text-blue-600 underline text-center">
             <Link href={`/id/${minifiedUrl}`}>
               <a target="_blank">{websiteUrl + "/id/" + minifiedUrl}</a>
             </Link>
