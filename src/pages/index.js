@@ -73,70 +73,75 @@ export default function Home() {
 
   function isUrlValid() {
     setMinifiedUrl("");
-    if (fullUrl === "") return false;
-    var res = fullUrl.match(
-      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
-    );
+    if (fullUrl === "") {
+      alert("Invalid URL");
+      return false;
+    }
+    var res = fullUrl.match(/(http(s)?:\/\/.)/g);
     if (res) isThisUrlAlreadyExist();
     else alert("Invalid URL");
   }
 
   return (
     <Layout title="URL Minifier">
-      <div className="w-full mt-20 flex items-center flex-col">
-        <h1 className="text-center font-semibold underline text-4xl mb-10">
-          URL MINIFIER
-        </h1>
-        <div className="w-11/12 flex justify-center items-center flex-row flex-wrap">
-          <input
-            type="text"
-            placeholder="Enter the URL"
-            className="p-2 w-full md:w-96 border-[1px] border-slate-800 rounded-lg focus:outline-none"
-            onChange={(e) => setFullUrl(e.target.value)}
-          />
-          <button
-            className="p-2 mt-4 md:mt-0 md:ml-2 rounded-lg bg-green-500 text-black border-[1px] border-slate-800 duration-300 hover:bg-emerald-500"
-            onClick={isUrlValid}
-          >
-            Submit
-          </button>
-        </div>
-        {minifiedUrl && (
-          <h2 className="mt-16 text-lg sm:text-xl text-blue-600 underline text-center">
-            <Link href={`/id/${minifiedUrl}`}>
-              <a target="_blank">{websiteUrl + "/id/" + minifiedUrl}</a>
-            </Link>
-          </h2>
-        )}
-        {usersLocalStorage.length != 0 && (
-          <div className="flex flex-col justify-center items-center gap-8 my-10">
+      <div className="w-full mt-10 flex items-center flex-col">
+        <div className="w-11/12 lg:w-1/2 py-10 px-5 flex justify-center items-center flex-col bg-white/20 shadow-blur backdrop-blur-xl border-[1px] border-white/20 rounded-xl">
+          <h1 className="text-center font-semibold underline text-4xl mb-10">
+            URL MINIFIER
+          </h1>
+          <div className="w-11/12 flex justify-center flex-col gap-y-3 items-center flex-wrap">
+            <input
+              type="text"
+              placeholder="Enter the URL"
+              className="p-2 w-full border-[1px] border-slate-800 rounded-lg focus:outline-none"
+              onChange={(e) => setFullUrl(e.target.value)}
+            />
             <button
-              className="bg-red-500 rounded-xl font-bold border-[1px] border-black p-2 w-28"
-              onClick={() => {
-                localStorage.setItem("url_minifier_storage", "");
-                setUsersLocalStorage("");
-              }}
+              className="px-2 py-1 rounded-lg bg-green-500 text-black border-[1px] border-slate-800 duration-300 hover:bg-emerald-500"
+              onClick={isUrlValid}
             >
-              CLEAR ALL
+              Submit
             </button>
-            {usersLocalStorage.map((url, index) => {
-              return (
-                <div
-                  key={index}
-                  className="flex flex-col justify-center items-center text-center"
-                >
-                  <p className="break-all">{url.fullUrl}</p>
-                  <Link href={`/id/${url.shortUrlCode}`}>
-                    <a
-                      target="_blank"
-                      className="bg-white text-center mt-1 text-blue-800 underline w-min px-2 py-1 rounded-lg"
-                    >
-                      {websiteUrl + "/id/" + url.shortUrlCode}
-                    </a>
-                  </Link>
-                </div>
-              );
-            })}
+          </div>
+          {minifiedUrl && (
+            <h2 className="mt-5 text-lg sm:text-xl text-blue-600 underline text-center">
+              <Link href={`/id/${minifiedUrl}`}>
+                <a target="_blank">{websiteUrl + "/id/" + minifiedUrl}</a>
+              </Link>
+            </h2>
+          )}
+        </div>
+        {usersLocalStorage.length != 0 && (
+          <div className="w-11/12 lg:w-1/2 mt-5 py-8 px-5 flex justify-center items-center flex-col bg-white/20 shadow-blur backdrop-blur-xl border-[1px] border-white/20 rounded-xl">
+            <div className="flex flex-col justify-center items-center gap-5">
+              <button
+                className="bg-red-500 rounded-xl font-bold border-[1px] border-black p-1 w-28"
+                onClick={() => {
+                  localStorage.setItem("url_minifier_storage", "");
+                  setUsersLocalStorage("");
+                }}
+              >
+                CLEAR ALL
+              </button>
+              {usersLocalStorage.map((url, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="flex flex-col justify-center items-center text-center"
+                  >
+                    <p className="break-all">{url.fullUrl}</p>
+                    <Link href={`/id/${url.shortUrlCode}`}>
+                      <a
+                        target="_blank"
+                        className="bg-white text-center mt-1 text-blue-800 underline w-min px-2 py-1 rounded-lg"
+                      >
+                        {websiteUrl + "/id/" + url.shortUrlCode}
+                      </a>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
       </div>

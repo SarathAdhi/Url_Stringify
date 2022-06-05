@@ -18,7 +18,7 @@ export default function Layout({ title, children }) {
         <meta property="og:site_name" content="UrlMinifier"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="w-full h-screen h-min-screen bg-teal-300 flex justify-center">
+      <main className="w-full h-screen h-min-screen space-y-5 flex justify-center">
         {children}
       </main>
     </>
