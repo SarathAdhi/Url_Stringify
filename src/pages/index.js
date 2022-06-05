@@ -127,13 +127,13 @@ export default function Home() {
                 return (
                   <div
                     key={index}
-                    className="flex flex-col justify-center items-center text-center"
+                    className="bg-white/50 px-5 py-2 rounded-xl flex flex-col justify-center items-center text-center"
                   >
-                    <p className="break-all">{url.fullUrl}</p>
+                    <p className="break-all font-medium">{url.fullUrl}</p>
                     <Link href={`/id/${url.shortUrlCode}`}>
                       <a
                         target="_blank"
-                        className="bg-white text-center mt-1 text-blue-800 underline w-min px-2 py-1 rounded-lg"
+                        className="text-center font-semibold mt-1 text-blue-800 underline w-min px-2 py-1 rounded-lg"
                       >
                         {websiteUrl + "/id/" + url.shortUrlCode}
                       </a>
