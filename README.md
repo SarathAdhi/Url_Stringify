@@ -7,8 +7,8 @@
 - [Firebase](https://firebase.google.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 
-<img width="1280" alt="image" src="https://user-images.githubusercontent.com/91727830/169706440-ee983844-7bed-411c-835c-50633ac27d1b.png">
-<img width="1280" alt="image" src="https://user-images.githubusercontent.com/91727830/169706567-1ba30b4e-7eda-4c5c-aa67-2a81e7b30e39.png">
+<img width="1280" alt="image" src="https://user-images.githubusercontent.com/91727830/172045752-6770f18d-9843-4390-a532-0e54d3cac46d.png">
+<img width="1280" alt="image" src="https://user-images.githubusercontent.com/91727830/172045838-6b7061e2-9098-44ac-b3d3-0480bc5c21e8.png">
 
 ## With all the minified urls stored in your local storage.
 
