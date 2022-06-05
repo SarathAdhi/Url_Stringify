@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import db from "../backend/db";
 import Link from "next/link";
-import Layout from "../components/Layouts";
+import Layout from "../components/Layouts.jsx";
 
 export default function Home() {
   const [fullUrl, setFullUrl] = useState("");
